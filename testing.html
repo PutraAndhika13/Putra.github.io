@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putra Andhika - Personal Portfolio</title>
+    <style> 
+    /* CSS variables - design system */
+    :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --color-primary: #3b82f6;
+        --color-secondary: #60a5fa;
+        --color-accent: #f59e0b;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #475569;
+    }
+
+    /* Base Styling */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Segoe UI', 'Roboto', sans-serif;
+        line-height: 1.6;
+    }
+
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+
+    h3{
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    small {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    /* Link Styling */
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: var(--color-secondary);
+    }
+    /* Lists Stayling */
+    ul {
+        list-style: none;
+
+    }
+
+    li {
+        margin: 0;
+    }
+    
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    
+    /* Center Content with Max-Width */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2 1.5rem;
+    }
+
+    /* Mobile: 340px width (full width - padding)
+    Tablet: 450px width (full width - padding)
+    desktop: 1200px width (max-width)
+    */
+
+
+    /* Header*/
+    header {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        transition: color 0.2s ease;
+    }
+
+    .logo:hover {
+        color: var(--color-primary);
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    header nav a:hover {
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 640px) {
+        header nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        header nav ul {
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        header nav a {
+            display: block;
+            padding: 0.5rem 0;
+        }
+    }
+
+
+    /* Hero Section */
+    #hero {
+        padding: 4rem 1.5rem;
+        text-align: center;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    #hero h1 {
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
+
+    #hero p {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Button Styles */
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        block-size: auto;
+    }
+
+    .btn:hover {
+        background-color: var(--color-primary);
+        transform: translateY (-2px);
+    }
+
+    .btn-secondary {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #hero {
+            padding: 2rem 1.5rem;
+            min-height: 50vh;
+        }
+
+        #hero h1 {
+            font-size: 1.75rem;
+        }
+
+        #hero p {
+            font-size: 1rem;
+        }
+    }
+
+    /* Projects Section */
+    #projects {
+        padding: 4rem 1.5rem;
+        background-color: var(--bg-primary);
+    }
+
+    #projects h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--text-primary);
+    }
+
+    /* Projects Container - GRID */
+    .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Project Card */
+    .project-card {
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+        border-color: var(--color-primary);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Project Image*/
+    .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background-color: var(--bg-tertiary)
+    }
+
+    /* Project Content */
+    .project-card h3 {
+        color: var(--text-primary);
+        padding: 1.5rem 1.5rem 0.5rem;
+    }
+
+    .project-card p {
+        color: var(--text-secondary);
+        padding: 0 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+
+    .tag{
+        display: inline-block;
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+    }
+
+    /* Button in Card */
+    .project-card .btn-secondary {
+        margin: 0 1.5rem 1.5rem 0;
+        display: inline-block;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #projects {
+            padding: 2rem 1.5rem;
+        }
+
+        #projects h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .project-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    /* SKILLS SECTION */
+    #skills {
+        padding: 4rem 1.5rem;
+        background-color: var(--bg-secondary);
+    }
+
+    #skills h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--text-primary);
+    }
+
+    /* SKILLS CONTAINER */
+    .skills-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Skills Item */
+    .skill-item {
+        background-color: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--color-primary);
+        transition: all 0.3s ease;
+    }
+
+
+    .skill-item:hover {
+        border-left-color: var(--color-accent);
+        transform: translateY(-5px);
+    }
+
+    .skill-item h3 {
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+        color: var(--text-secondary);
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #skills {
+            padding: 2rem 1.5rem;
+        }
+
+        #skills h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .skills-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    /* CTA SECTION */
+    #cta {
+        padding: 4rem 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        text-align: center;
+        color: white;
+    }
+
+    #cta h2 {
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    #cta p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+    
+
+    #cta .btn {
+        background-color: var(--color-accent);
+        color: var(--bg-primary);
+    }
+
+    #cta .btn:hover {
+        background-color: var(--color-accent);
+        color: var(--bg-primary);
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #cta {
+            padding: 2rem 1.5rem;
+        }
+
+        #cta h2 {
+            font-size: 1.5rem;
+        }
+
+        #cta p {
+            font-size: 1rem;
+        }
+    }
+
+
+    /* FOOTER */
+    footer {
+        background-color: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+    footer p {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    footer nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    footer a:hover {
+        color: var(--color-primary);
+
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        footer {
+            padding: 1.5rem 1rem;
+        }
+
+        footer nav ul {
+            flex-direction: column;
+            gap: 1rem.
+        }
+    }
+
+    /* Mobile: < 640px */
+    @media (max-width: 640px) {
+    }
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+    }
+
+    @media (min-width: 1024) {
+    }
+
+    
+
+
+    </style>
+</head>
+<body>
+    <!--Header and Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Putra Andhika</a>
+            <ul>
+                <li><a href="#about.hmtl#contact">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <h1>Putra Andhika</h1>
+            <p>Web Developer & Content Creator</p>
+            <a href="#projects" class="btn">View My Projects</a>
+        </section>
+
+        <!-- Projects Section -->
+         <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <article class="project-card">
+                    <img src="https://placeholder.com/400x300" alt="project 1">
+                    <h3>Digital IT Service Channel</h3>
+                    <p>Description of Projects 1</p>
+                    <div class="tech-tags">
+                        <span class="tag">Youtube</span>
+                        <span class="tag">AI Tools</span>
+                    </div>
+                    <a href="#" class="btn-secondary">View Project</a>
+                </article>
+
+                <article class="project-card">
+                    <img src="https://placeholder.com/400x300" alt="project 2">
+                    <h3>Personal Portofolio Website</h3>
+                    <p>Description of Project 2</p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="#" class="btn-secondary">View Project</a>
+                </article>
+            </div>
+         </section>
+
+         <!-- Skills Section -->
+          <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS3, JavaScript</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Tools</h3>
+                    <p>Git, Github, VS Code</p>
+                </div>
+            </div>
+          </section>
+          <!-- CTA SECTION -->
+           <section id="cta">
+            <h2>Let's Work Together</h2>
+            <p>I'm open to now opportunities and collaborations</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+           </section>
+        </main>
+
+        <!-- Footer -->
+         <footer>
+            <p>&copy; 2026 Putra Andhika. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://instagram.com">Instagram</a></li>
+                    <li><a href="https://youtube.com">Youtube</a></li>
+                </ul>
+            </nav>
+         </footer>
+</body>
+</html>
