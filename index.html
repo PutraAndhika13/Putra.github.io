@@ -1,183 +1,561 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Putra's Professional Portfolio - Web Developer passionate about creating beautiful and functional websites. Specializing in HTML, CSS, and JavaScript.">
-    <meta name="keywords" content="web developer, portfolio, HTML, CSS, JavaScript, web development">
-    <meta name="author" content="Putra Andhika">
-    <title>Putra Andhika - Web Developer Portfolio</title>
+    <title>Putra Andhika - Personal Portfolio</title>
+    <style> 
+    /* CSS variables - design system */
+    :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --color-primary: #3b82f6;
+        --color-secondary: #60a5fa;
+        --color-accent: #f59e0b;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #475569;
+    }
+
+    /* Base Styling */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Segoe UI', 'Roboto', sans-serif;
+        line-height: 1.6;
+    }
+
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+
+    h3{
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    small {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    /* Link Styling */
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: var(--color-secondary);
+    }
+    /* Lists Stayling */
+    ul {
+        list-style: none;
+
+    }
+
+    li {
+        margin: 0;
+    }
+    
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    
+    /* Center Content with Max-Width */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2 1.5rem;
+    }
+
+    /* Mobile: 340px width (full width - padding)
+    Tablet: 450px width (full width - padding)
+    desktop: 1200px width (max-width)
+    */
+
+
+    /* Header*/
+    header {
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        transition: color 0.2s ease;
+    }
+
+    .logo:hover {
+        color: var(--color-primary);
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    header nav a:hover {
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 640px) {
+        header nav {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        header nav ul {
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        header nav a {
+            display: block;
+            padding: 0.5rem 0;
+        }
+    }
+
+
+    /* Hero Section */
+    #hero {
+        padding: 4rem 1.5rem;
+        text-align: center;
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    #hero h1 {
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
+
+    #hero p {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    /* Button Styles */
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        block-size: auto;
+    }
+
+    .btn:hover {
+        background-color: var(--color-primary);
+        transform: translateY (-2px);
+    }
+
+    .btn-secondary {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #hero {
+            padding: 2rem 1.5rem;
+            min-height: 50vh;
+        }
+
+        #hero h1 {
+            font-size: 1.75rem;
+        }
+
+        #hero p {
+            font-size: 1rem;
+        }
+    }
+
+    /* Projects Section */
+    #projects {
+        padding: 4rem 1.5rem;
+        background-color: var(--bg-primary);
+    }
+
+    #projects h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--text-primary);
+    }
+
+    /* Projects Container - GRID */
+    .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    /* Project Card */
+    .project-card {
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+        border-color: var(--color-primary);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Project Image*/
+    .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background-color: var(--bg-tertiary)
+    }
+
+    /* Project Content */
+    .project-card h3 {
+        color: var(--text-primary);
+        padding: 1.5rem 1.5rem 0.5rem;
+    }
+
+    .project-card p {
+        color: var(--text-secondary);
+        padding: 0 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+
+    .tag{
+        display: inline-block;
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+    }
+
+    /* Button in Card */
+    .project-card .btn-secondary {
+        margin: 0 1.5rem 1.5rem 0;
+        display: inline-block;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #projects {
+            padding: 2rem 1.5rem;
+        }
+
+        #projects h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .project-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    /* SKILLS SECTION */
+    #skills {
+        padding: 4rem 1.5rem;
+        background-color: var(--bg-secondary);
+    }
+
+    #skills h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--text-primary);
+    }
+
+    /* SKILLS CONTAINER */
+    .skills-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Skills Item */
+    .skill-item {
+        background-color: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--color-primary);
+        transition: all 0.3s ease;
+    }
+
+
+    .skill-item:hover {
+        border-left-color: var(--color-accent);
+        transform: translateY(-5px);
+    }
+
+    .skill-item h3 {
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+        color: var(--text-secondary);
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #skills {
+            padding: 2rem 1.5rem;
+        }
+
+        #skills h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .skills-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    /* CTA SECTION */
+    #cta {
+        padding: 4rem 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        text-align: center;
+        color: white;
+    }
+
+    #cta h2 {
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    #cta p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+    
+
+    #cta .btn {
+        background-color: var(--color-accent);
+        color: var(--bg-primary);
+    }
+
+    #cta .btn:hover {
+        background-color: var(--color-accent);
+        color: var(--bg-primary);
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        #cta {
+            padding: 2rem 1.5rem;
+        }
+
+        #cta h2 {
+            font-size: 1.5rem;
+        }
+
+        #cta p {
+            font-size: 1rem;
+        }
+    }
+
+
+    /* FOOTER */
+    footer {
+        background-color: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+    footer p {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+
+    footer nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    footer a:hover {
+        color: var(--color-primary);
+
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+        footer {
+            padding: 1.5rem 1rem;
+        }
+
+        footer nav ul {
+            flex-direction: column;
+            gap: 1rem.
+        }
+    }
+
+    /* Mobile: < 640px */
+    @media (max-width: 640px) {
+    }
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+    }
+
+    @media (min-width: 1024) {
+    }
+
+    
+
+
+    </style>
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header id="header" class="header">
-        <div class="header-content">
-            <h1 class="logo">Putra Andhika</h1>
-            <p class="tagline">Web Developer & Content Creator</p>
-        </div>
-        
-        <nav class="navbar" aria-label="Main navigation">
-            <ul class="nav-list">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!--Header and Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Putra Andhika</a>
+            <ul>
+                <li><a href="#about.hmtl#contact">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Welcome to My Portfolio</h2>
-                <p>I'm a passionate web developer dedicated to creating beautiful, functional, and accessible websites. Currently learning and building projects to showcase my skills.</p>
-                <a href="#projects" class="cta-button">View My Work</a>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <article class="about-content">
-                <p>Hello! I'm Putra, a web developer passionate about creating beautiful and functional websites. I believe in the power of clean code, semantic HTML, and user-centered design.</p>
-                <p>Currently, I'm studying Information Technology at AMIKOM Yogyakarta (Unggul Accreditation). I'm constantly learning new technologies and best practices to improve my craft.</p>
-                <p>When I'm not coding, you can find me exploring anime, gaming (especially tactical RTS games), or creating content on my YouTube channel.</p>
-            </article>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <article class="skill-card">
-                    <h3>Frontend Development</h3>
-                    <ul class="skill-list">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>JavaScript (Learning)</li>
-                        <li>Semantic HTML</li>
-                        <li>Responsive Design</li>
-                    </ul>
-                </article>
-
-                <article class="skill-card">
-                    <h3>Web Concepts</h3>
-                    <ul class="skill-list">
-                        <li>SEO Basics</li>
-                        <li>Web Accessibility (A11y)</li>
-                        <li>UX/UI Principles</li>
-                        <li>Git & Version Control</li>
-                        <li>Web Publishing</li>
-                    </ul>
-                </article>
-
-                <article class="skill-card">
-                    <h3>Tools & Platforms</h3>
-                    <ul class="skill-list">
-                        <li>VS Code</li>
-                        <li>GitHub</li>
-                        <li>Netlify</li>
-                        <li>Browser DevTools</li>
-                        <li>AI Tools (Claude, etc)</li>
-                    </ul>
-                </article>
-            </div>
+    
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <h1>Putra Andhika</h1>
+            <p>Web Developer & Content Creator</p>
+            <a href="#projects" class="btn">View My Projects</a>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects">
+         <section id="projects">
             <h2>Featured Projects</h2>
-            
-            <article class="project-card">
-                <div class="project-header">
+            <div class="projects-container">
+                <article class="project-card">
+                    <img src="https://placeholder.com/400x300" alt="project 1">
                     <h3>Digital IT Service Channel</h3>
-                    <p class="project-date">2 months in progress</p>
-                </div>
-                
-                <p class="project-description">
-                    Digital IT Service Channel is a portfolio project designed to educate and assist a general audience in navigating IT challenges. Through step-by-step tutorials, practical tips & tricks, and comprehensive troubleshooting guides, the channel demonstrates how AI tools (Claude, Grok) and content platforms (YouTube) can be leveraged to provide accessible IT support.
-                </p>
-                
-                <p class="project-description">
-                    The project showcases real-world problem-solving approaches, emphasizing practical value and making complex IT concepts understandable for users of all skill levels. Over the past 2 months, the channel has served as both a learning platform and a portfolio piece, highlighting the potential of AI-assisted content creation for technical education.
-                </p>
-                
-                <div class="project-tech">
-                    <span class="tech-tag">AI Tools</span>
-                    <span class="tech-tag">YouTube</span>
-                    <span class="tech-tag">Content Creation</span>
-                </div>
-                
-                <a href="https://www.instagram.com/putraandhitech?igsh=MWxzN2k3NHUxOGowcQ==" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
-            </article>
+                    <p>Description of Projects 1</p>
+                    <div class="tech-tags">
+                        <span class="tag">Youtube</span>
+                        <span class="tag">AI Tools</span>
+                    </div>
+                    <a href="#" class="btn-secondary">View Project</a>
+                </article>
 
-            <article class="project-card">
-                <div class="project-header">
-                    <h3>Personal Portfolio Website</h3>
-                    <p class="project-date">Current Project</p>
+                <article class="project-card">
+                    <img src="https://placeholder.com/400x300" alt="project 2">
+                    <h3>Personal Portofolio Website</h3>
+                    <p>Description of Project 2</p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="#" class="btn-secondary">View Project</a>
+                </article>
+            </div>
+         </section>
+
+         <!-- Skills Section -->
+          <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS3, JavaScript</p>
                 </div>
-                
-                <p class="project-description">
-                    Building a professional portfolio website to showcase my skills and projects. This website demonstrates my understanding of semantic HTML, SEO best practices, web accessibility, and responsive design principles.
-                </p>
-                
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">Semantic HTML</span>
-                    <span class="tech-tag">Web Accessibility</span>
-                    <span class="tech-tag">SEO</span>
+                <div class="skill-item">
+                    <h3>Tools</h3>
+                    <p>Git, Github, VS Code</p>
                 </div>
-                
-                <a href="https://putra.github.io" target="_blank" rel="noopener noreferrer" class="project-link">View Website</a>
-            </article>
-        </section>
+            </div>
+          </section>
+          <!-- CTA SECTION -->
+           <section id="cta">
+            <h2>Let's Work Together</h2>
+            <p>I'm open to now opportunities and collaborations</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+           </section>
+        </main>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Get In Touch</h2>
-            
-            <article class="contact-content">
-                <p>I'm always open to new opportunities and collaborations. Feel free to reach out to me through any of the following channels:</p>
-                
-                <address class="contact-info">
-                    <h3>Contact Methods</h3>
-                    <ul class="contact-list">
-                        <li>
-                            <strong>Email:</strong> 
-                            <a href="mailto:andhikaptra1378@gmail.com">andhikaptra1378@gmail.com</a>
-                        </li>
-                        <li>
-                            <strong>Phone:</strong> 
-                            <a href="tel:+6282250101117">+62 822 5010 1117</a>
-                        </li>
-                        <li>
-                            <strong>Instagram:</strong> 
-                            <a href="https://www.instagram.com/putraandhitech" target="_blank" rel="noopener noreferrer">@putraandhitech</a>
-                        </li>
-                        <li>
-                            <strong>YouTube:</strong> 
-                            <a href="https://www.youtube.com/@mikorazon" target="_blank" rel="noopener noreferrer">@mikorazon</a>
-                        </li>
-                    </ul>
-                </address>
-                
-                <p class="contact-cta">I typically respond within 24-48 hours. Looking forward to connecting with you!</p>
-            </article>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
+        <!-- Footer -->
+         <footer>
             <p>&copy; 2026 Putra Andhika. All rights reserved.</p>
-            <p class="footer-credit">Built with HTML5, crafted with care.</p>
-        </div>
-    </footer>
-
+            <nav>
+                <ul>
+                    <li><a href="https://instagram.com">Instagram</a></li>
+                    <li><a href="https://youtube.com">Youtube</a></li>
+                </ul>
+            </nav>
+         </footer>
 </body>
 </html>
