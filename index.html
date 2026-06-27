@@ -1,50 +1,183 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Putra's Professional Portfolio - Web Developer passionate about creating beautiful and functional websites. Specializing in HTML, CSS, and JavaScript.">
+    <meta name="keywords" content="web developer, portfolio, HTML, CSS, JavaScript, web development">
+    <meta name="author" content="Putra Andhika">
+    <title>Putra Andhika - Web Developer Portfolio</title>
 </head>
 <body>
-<header>
-    <h1>My Personal Portfolio</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Projects.html">Projects</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="About.html">About Me</a></li>
-        </ul>
-    </nav>
-</header>
-<section>
-    <h2>About Me</h2>
-    <p>Hello, I'm a web developer passionate about creating beautiful and functional websites.</p>
-    <h3>Skills</h3>
-    <ul>
-        <strong><li>HTML</li></strong>
-        <strong><li>CSS</li></strong>
-        <strong><li>JavaScript</li></strong>
-    </ul>
-    <h4>Projects</h4>
-        <ul>
-            <strong><li>Digital IT Service Channel</li></strong>
-        </ul>
+    <!-- Header with Navigation -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <h1 class="logo">Putra Andhika</h1>
+            <p class="tagline">Web Developer & Content Creator</p>
+        </div>
+        
+        <nav class="navbar" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</section>
-    <div class="context">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out to me at:</p>
-        <ul>
-            <li><a href="mailto:andhikaptra1378@gmail.com">Email saya</a></li>
-            <li><a href="tel:+6282250101117">Telepon saya</a></li>
-        </ul>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to My Portfolio</h2>
+                <p>I'm a passionate web developer dedicated to creating beautiful, functional, and accessible websites. Currently learning and building projects to showcase my skills.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
 
-    
-<footer>
-    <p>&copy; 2023 My Personal Portfolio. All rights reserved.</p>
-</footer>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <article class="about-content">
+                <p>Hello! I'm Putra, a web developer passionate about creating beautiful and functional websites. I believe in the power of clean code, semantic HTML, and user-centered design.</p>
+                <p>Currently, I'm studying Information Technology at AMIKOM Yogyakarta (Unggul Accreditation). I'm constantly learning new technologies and best practices to improve my craft.</p>
+                <p>When I'm not coding, you can find me exploring anime, gaming (especially tactical RTS games), or creating content on my YouTube channel.</p>
+            </article>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <article class="skill-card">
+                    <h3>Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript (Learning)</li>
+                        <li>Semantic HTML</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Web Concepts</h3>
+                    <ul class="skill-list">
+                        <li>SEO Basics</li>
+                        <li>Web Accessibility (A11y)</li>
+                        <li>UX/UI Principles</li>
+                        <li>Git & Version Control</li>
+                        <li>Web Publishing</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>VS Code</li>
+                        <li>GitHub</li>
+                        <li>Netlify</li>
+                        <li>Browser DevTools</li>
+                        <li>AI Tools (Claude, etc)</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2>Featured Projects</h2>
+            
+            <article class="project-card">
+                <div class="project-header">
+                    <h3>Digital IT Service Channel</h3>
+                    <p class="project-date">2 months in progress</p>
+                </div>
+                
+                <p class="project-description">
+                    Digital IT Service Channel is a portfolio project designed to educate and assist a general audience in navigating IT challenges. Through step-by-step tutorials, practical tips & tricks, and comprehensive troubleshooting guides, the channel demonstrates how AI tools (Claude, Grok) and content platforms (YouTube) can be leveraged to provide accessible IT support.
+                </p>
+                
+                <p class="project-description">
+                    The project showcases real-world problem-solving approaches, emphasizing practical value and making complex IT concepts understandable for users of all skill levels. Over the past 2 months, the channel has served as both a learning platform and a portfolio piece, highlighting the potential of AI-assisted content creation for technical education.
+                </p>
+                
+                <div class="project-tech">
+                    <span class="tech-tag">AI Tools</span>
+                    <span class="tech-tag">YouTube</span>
+                    <span class="tech-tag">Content Creation</span>
+                </div>
+                
+                <a href="https://www.instagram.com/putraandhitech?igsh=MWxzN2k3NHUxOGowcQ==" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header">
+                    <h3>Personal Portfolio Website</h3>
+                    <p class="project-date">Current Project</p>
+                </div>
+                
+                <p class="project-description">
+                    Building a professional portfolio website to showcase my skills and projects. This website demonstrates my understanding of semantic HTML, SEO best practices, web accessibility, and responsive design principles.
+                </p>
+                
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">Semantic HTML</span>
+                    <span class="tech-tag">Web Accessibility</span>
+                    <span class="tech-tag">SEO</span>
+                </div>
+                
+                <a href="https://putra.github.io" target="_blank" rel="noopener noreferrer" class="project-link">View Website</a>
+            </article>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Get In Touch</h2>
+            
+            <article class="contact-content">
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out to me through any of the following channels:</p>
+                
+                <address class="contact-info">
+                    <h3>Contact Methods</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <strong>Email:</strong> 
+                            <a href="mailto:andhikaptra1378@gmail.com">andhikaptra1378@gmail.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone:</strong> 
+                            <a href="tel:+6282250101117">+62 822 5010 1117</a>
+                        </li>
+                        <li>
+                            <strong>Instagram:</strong> 
+                            <a href="https://www.instagram.com/putraandhitech" target="_blank" rel="noopener noreferrer">@putraandhitech</a>
+                        </li>
+                        <li>
+                            <strong>YouTube:</strong> 
+                            <a href="https://www.youtube.com/@mikorazon" target="_blank" rel="noopener noreferrer">@mikorazon</a>
+                        </li>
+                    </ul>
+                </address>
+                
+                <p class="contact-cta">I typically respond within 24-48 hours. Looking forward to connecting with you!</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Putra Andhika. All rights reserved.</p>
+            <p class="footer-credit">Built with HTML5, crafted with care.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
